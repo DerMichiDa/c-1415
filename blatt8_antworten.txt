@@ -10,6 +10,11 @@ pure virtual methods
 Abstrakte Klassen
 -----------------
 
++ Randerable
+
+  + Hat keinerlei Informationen über das, was gerendert werden soll.
+  + kann nur abstrakt sein.
+
 Aufgabe 2
 =========
 
