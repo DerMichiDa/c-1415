@@ -1,0 +1,17 @@
+% Einführung in die Programmiersprache C++
+% Frank Mehne & Michael Micke
+
+Aufgabe 1
+=========
+
+pure virtual methods
+--------------------
+
+Abstrakte Klassen
+-----------------
+
+Aufgabe 2
+=========
+
+`BitmapReader`
+--------------
