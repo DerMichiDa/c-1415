@@ -24,6 +24,8 @@ Aufgabe 2
 Die Klasse BitmapReader besteht aus den Informationen über das gelesene Bild und den Daten des Bildes.
 In der Variablen m_widht und m_height werden die Breite bzw Höhe des Bildes abgelegt. Die variable m_pixels speichert die
 Pixelwerte. Hierbei sind jeweils 3 Einträge im Array die RGB-Information für ein Pixel des Bildes.
+Die Datenfelder sind mit dem Schlüsselwort 'protected' gekennzeichnet, was bedeutet, dass sie von erbenden Klassen benutzt
+werden können. 
 
 Neben den Membervariablen der Klasse gibt es außerdem einen Konstruktor, einen Destruktor und Accessormethoden für 
-die einzelnen Datenfelder
+die einzelnen Datenfelder. Die Methoden sind virtual, was bedeutet, dass sie von erbenden Klassen überschrieben werden können.
