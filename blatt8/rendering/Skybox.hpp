@@ -48,9 +48,6 @@ private:
 
     /// An array containing the sykbox textures
     Texture**       m_textures;
-
-    /// The with of the Skybox
-    int             m_width;
 };
 
 } // namespace asteroids
