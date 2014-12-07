@@ -27,6 +27,12 @@ ReadPPM::ReadPPM(const char* filename) {
 }
 
 ReadPPM::~ReadPPM() {
+	
+	// free the memory of the pixel storage
+	if (m_pixels) {
+		delete[] m_pixels;
+		m_pixels = NULL;
+	}
 }
 
 void ReadPPM::readSelectively(ifstream& inStream, string& line,
