@@ -1,35 +1,61 @@
-/**
- * @file ReadPPM.hpp
+/*
+ * ReadPPM.hpp
  *
- * @author Michael Micke
- * @author Frank Mehne
+ *@brief	This class is for reading pictures from the .ppm format (binary and in ASCII)
+ *
+ *  Created on: Dec 6, 2014
+ *      Author: Michael Micke, Frank Mehne
  */
 
-#ifndef READ_PPM_HPP_
-#define READ_PPM_HPP_
+#ifndef READPPM_HPP_
+#define READPPM_HPP_
 
-#include <string>
+#include <fstream>
+#include <iostream>
 
-using std::string
+using namespace std;
 
-namespace asteroids
-{
+namespace asteroids {
 
-class ReadPPM : public BitmapReader
-{
+class ReadPPM: BitmapReader {
 public:
-    /**
-     * @brief constructor
-     */
-    ReadPPM(const string filename);
-    /**
-     * @brief destructor
-     */
-    ~ReadPPM(){};
 
-    
-}
+	/**
+	 * @brief Constructor with a file to read
+	 *
+	 * @author	Michael Micke, Frank Mehne
+	 * @since 7.12.2014
+	 */
+	ReadPPM(const char* filename);
+	virtual ~ReadPPM();
 
-} /* asteroids */
+private:
 
-#endif /* READ_PPM_HPP_ */
+	/**
+	 * @brief 	Loads and reads a file
+	 *
+	 * @return 	1 if successful, 0 if not
+	 *
+	 * @author	Michael Micke, Frank Mehne
+	 * @since 7.12.2014
+	 */
+	int loadFile(const char* filename);
+
+	/**
+	 * @brief	Reads a line from the stream but only if it
+	 * 			does not start with the char defined in 'selector'
+	 *
+	 * @param	inStream	A reference to the incoming stream
+	 * @param 	line		Where the read line is written to
+	 * @param 	selector	A char to determine which lines schould not be read
+	 *
+	 * @author	Michael Micke, Frank Mehne
+	 * @since 	7.12.2014
+	 */
+	void readSelectively(ifstream& inStream, string& line, string selector);
+
+};
+
+} /* namespace asteroids */
+
+#endif /* READPPM_HPP_ */
