@@ -15,9 +15,10 @@ namespace asteroids
  * @brief Exception, die immer dann auftritt, wenn versucht wird durch Null
  *      zu teilen. (Verboten!!!)
  */
-class DivisionByZero : public BaseException
+class DivisionByZeroException : public BaseException
 {
-
+public:
+    inline virtual const string what() const { return "DivisionByZeroExcpetion: " + m_description; }
 }
 
 }

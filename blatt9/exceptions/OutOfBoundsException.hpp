@@ -18,7 +18,9 @@ namespace asteroids
  *      abzufragen bzw. anzufordern, die außerhalb der Grenzen liegen.
  */
 class OutOfBoundsException : public BaseException
-
+{
+public:
+    inline virtual const string what() const { return "OutOfBoundException: " + m_description ; }
 }
 
 #endif /* OUT_OF_BOUNDS_EXCEPTION_HPP_ */

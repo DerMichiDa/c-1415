@@ -22,6 +22,10 @@ void Vertex::normalize()
 {
 	// Normalize the vector
 	float mag2 = x * x + y * y + z * z;
+
+    //Check for division by zero
+    if (mag2 == 0) throw new DivisionByZero("Size of Vector is zero!");
+
 	if (fabs(mag2 - 1.0f) > TOLERANCE)
 	{
 		float mag = sqrt(mag2);
@@ -69,7 +73,7 @@ float Vertex::operator[](const int &index) const
 		return z;
 	}
 
-	return 0;
+    throw new IndexOutOfBoundsException("index is " + &index + "!!");
 }
     
     
@@ -92,7 +96,7 @@ float& Vertex::operator[](const int &index)
     }
     
     // Return a defualt reference -> later throw exception!!
-    return x;
+    throw new IndexOutOfBoundsException("index is " + &index + "!!");
 }
 
 
