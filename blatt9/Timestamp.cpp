@@ -2,7 +2,7 @@
  * Timestamp.cpp
  *
  *  Created on: Dec 13, 2014
- *      Author: tank
+ *      Author: Michael Micke, Frank Mehne
  */
 
 #include "Timestamp.hpp"
