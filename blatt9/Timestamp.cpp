@@ -59,7 +59,7 @@ double Timestamp::getElapsedTimeInS() const {
 	return getElapsedTimeInMs() / 1000;
 }
 
-void Timestamp::resetTimer(){
+void Timestamp::resetTimer() {
 
 	// sets the timer to the current system time
 	m_startTime = getCurrentTimeInMs();
@@ -81,6 +81,48 @@ string Timestamp::getElapsedTime() const {
 	return retString;
 }
 
+ostream& operator<<(ostream& os, const Timestamp& ts) const {
+
+	// calculate hours, minutes, seconds and milliseconds
+	unsigned long milliSecs = ts.getElapsedTimeInMs();
+
+	int hours = floor(milliSecs / 3600000);
+	milliSecs -= hours * 3600000;
+	int mins = floor(milliSecs / 60000);
+	milliSecs -= mins * 60000;
+	int secs = floor(milliSecs / 1000);
+	milliSecs -= secs * 1000;
+
+	// write the time stamp in the stream
+	os << '[';
+	if (hours > 9) {
+		os << hours;
+	} else {
+		os << '0' << hours;
+	}
+
+	os << ':';
+
+	if (mins > 9) {
+		os << mins;
+	} else {
+		os << '0' << mins;
+	}
+
+	os << ':';
+
+	if (secs > 9) {
+		os << secs;
+	} else {
+		os << '0' << secs;
+	}
+
+	os << " - " << milliSecs << ']';
+
+
+	// return the stream
+	return os;
+}
 
 Timestamp::~Timestamp() {
 }
