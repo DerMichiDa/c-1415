@@ -80,4 +80,4 @@ private:
 
 } /* namespace asteroids */
 
-#endif /* TIMESTAMP_H_ */
+#endif /* TIMESTAMP_HPP_ */
