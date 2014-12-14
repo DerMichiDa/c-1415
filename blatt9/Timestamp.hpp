@@ -9,6 +9,10 @@
 #ifndef TIMESTAMP_HPP_
 #define TIMESTAMP_HPP_
 
+#include <ostream>
+
+using namespace std;
+
 namespace asteroids {
 
 class Timestamp {
@@ -48,7 +52,21 @@ public:
 	 * @brief Returns a string representation of the current timer value
 	 *
 	 */
-	std::string getElapsedTime() const;
+	string getElapsedTime() const;
+
+	/**
+	 * @brief operator for printing out a time stamp
+	 *
+	 * @param	os 	The stream in which the time stamp shall be written
+	 * @param 	ts	The timestamp that shall be written in the stream
+	 *
+	 * @return 	A reference to the stream in which the time stamp is written
+	 *
+	 * @author Michael Micke
+	 * @author Frank Mehne
+	 * @since 14.12.2014
+	 */
+	ostream& operator<<(ostream& os, const Timestamp& ts) const;
 
 	/**
 	 * @brief Destructor
@@ -61,6 +79,5 @@ private:
 };
 
 } /* namespace asteroids */
-
 
 #endif /* TIMESTAMP_H_ */
