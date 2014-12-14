@@ -74,7 +74,7 @@ public:
 	virtual ~Timestamp();
 
 private:
-	/// The system time at object instantiation
+	// The system time at object instantiation
 	unsigned long m_startTime;
 };
 
