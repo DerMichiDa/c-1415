@@ -17,7 +17,6 @@ namespace asteroids {
 
 class Logger {
 public:
-	Logger(Timestamp& timestamp);
 	virtual ~Logger();
 
 	/**
@@ -54,6 +53,15 @@ public:
 	 */
 	void operator<<(Logger& logger, string event) const;
 
+    /** 
+     * @brief Getter for singleton
+     */
+    static Logger getInstance();
+    /**
+     * @brief clean storage
+     */
+    static void deleteSingleton();
+
 private:
 	/**
 	 * Determines whether logger events are written in file or to the console
@@ -71,6 +79,12 @@ private:
 	 * The stream in which the logger events are written
 	 */
 	ostream m_outputStream;
+    /**
+     * hide constructor
+     */
+	Logger();
+
+    static singleton;
 };
 
 } /* namespace asteroids */

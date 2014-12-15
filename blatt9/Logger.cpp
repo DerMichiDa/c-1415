@@ -21,9 +21,10 @@ Logger::Logger(Timestamp& timestamp) {
 	m_outputStream = cout;
 
 	// save reference to Timestamp instance
-	m_timestampRef = timestamp;
+	m_timestampRef = new Timestamp();
 
 }
+
 
 Logger::~Logger() {
 
@@ -32,6 +33,20 @@ Logger::~Logger() {
 
 	}
 
+    delete m_timestampRef;
+
+}
+
+static Logger Logger::getInstance()
+{
+    if(singleton == 0) singleton = new Logger();
+
+    return singleton;
+}
+
+static void freeSingleton()
+{
+    delete singleton;
 }
 
 void Logger::setOutputToStdout() {

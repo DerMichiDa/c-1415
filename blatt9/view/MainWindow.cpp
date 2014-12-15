@@ -44,7 +44,11 @@ MainWindow::MainWindow(string filename)
 	names[4] = "box5.ppm";
 	names[5] = "box6.jpg";
 
+    Logger.getInstance() << "Start to load Skybox.";
+
 	m_skybox = new Skybox(2048, names);
+
+    Logger.getInstance() << "Finished loading Skybox.";
 
 	// Call main loop
     glutMainLoop();
