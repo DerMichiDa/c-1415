@@ -1,0 +1,2 @@
+/home/uni/cpp/git/blatt10/uebung10/build/ext/load3ds/CMakeFiles/c3dsreader.dir
+/home/uni/cpp/git/blatt10/uebung10/build/CMakeFiles/viewer.dir
