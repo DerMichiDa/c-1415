@@ -1,15 +1,6 @@
-/**
- *  @file Starfield.hpp
- *
- *  @date 27.11.2011
- *  @author Tim Kühnen
- *  @author Dominik Feldschnieders
- *  @author Henning Strüber
- *  @author Thomas Wiemann
- */
 
-#ifndef STARFIELD_HPP_
-#define STARFIELD_HPP_
+#ifndef ASTEROIDFIELD_HPP_
+#define ASTEROIDFIELD_HPP_
 
 #include <cmath>
 #include <algorithm>
@@ -28,9 +19,6 @@ namespace asteroids
 {
 
 
-/**
- * @brief   Representatio of an asteroid field
- */
 class AsteroidField : public FixedObject
 {
 public:
@@ -38,31 +26,33 @@ public:
 
 	/**
 	 * @brief   Creates an asteroid field with n asteroids in it
+	 * @author  Michael Micke, Frank Mehne
+	 * @since   4.1.2015
 	 */
-    AsteroidField(int n, string basePath = "");
+    	AsteroidField(int n, string basePath = "");
 
 	/**
-	 * @brief   Dtor.
+	 * @brief   Destructor
+	 * @author  Michael Micke, Frank Mehne
+	 * @since   4.1.2015
 	 */
-	virtual ~AsteroidField();
+	~AsteroidField();
 
 	/**
 	 * @brief   Renders all asteroids
+	 * @author  Michael Micke, Frank Mehne
+	 * @since   4.1.2015 
 	 */
 	void render();
 
 private:
-	/// Helper function. Renders a given asteroid
-	void render_asteroid(Asteroid a);
+	// List of asteroids in the asteroid field
+    	List<Asteroid*>* m_asteroids;
 
-	/// The asteroids in the field
-    List<Asteroid>* m_asteroids;
-
-    /// Relative path to look for the asteroid model
-    string m_basePath;
+    	// Relative path to look for the asteroid model
+    	string m_basePath;
 };
 
 }
 
 #endif
-
