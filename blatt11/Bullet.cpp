@@ -19,10 +19,12 @@ Bullet::Bullet(Vertex<float> fighter_position, Vertex<float> fighterAxis,
 		float bulletSpeed) {
 
 	m_fighter_position = fighter_position;
-	m_fighterAxis = fighterAxis;
+
+	// axis has to be inverted otherwise the bullets come out of the rear end of the fighter
+	m_fighterAxis = fighterAxis * (-1);
 
 	m_bulletSpeed = bulletSpeed;
-	m_alive = false;
+	m_alive = true;
 }
 
 Bullet::~Bullet() {
@@ -47,7 +49,8 @@ void Bullet::stop() {
 void Bullet::start() {
 
 	// Start a new thread calling the run()-function
-	runThread = new std::thread(run);
+	this->runThread = std::thread(&Bullet::run, this);
+
 }
 
 void Bullet::run() {
@@ -59,7 +62,7 @@ void Bullet::run() {
 	for (int i = 0; i < m_lifetime; i++) {
 
 		// determine new position of bullet
-		m_position += m_bulletSpeed * m_fighterAxis;
+		m_position += m_fighterAxis * m_bulletSpeed;
 
 		// let the thread sleep
 		std::this_thread::sleep_for(sleepTime);
