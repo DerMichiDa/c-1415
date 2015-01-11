@@ -31,15 +31,10 @@ public:
 	 * @param   fighter_position   Position of the fighter that shoots this bullet
 	 * @param   fighter_axis   Axis the bullet will move on
 	 */
-	Bullet::Bullet(Vertex<float> fighter_position, Vertex<float> fighterAxis,
+	Bullet(Vertex<float> fighter_position, Vertex<float> fighterAxis,
 			float bulletSpeed);
 
 	~Bullet();
-
-	/**
-	 * @brief Moves the bullet until it's lifetime is over.
-	 */
-	void run();
 
 	/**
 	 * @brief Starts bullet movement
@@ -63,6 +58,12 @@ public:
 	bool isAlive();
 
 private:
+
+	/**
+	 * @brief Moves the bullet until it's lifetime is over.
+	 */
+	void run();
+
 	// Lifetime, i.e., how many timesteps the bullet visible
 	static const int m_lifetime = 9000;
 
