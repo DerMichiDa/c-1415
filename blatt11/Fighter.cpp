@@ -42,7 +42,7 @@ void Fighter::render() {
 //		} else {
 //
 //			// render it otherwise
-//			iter->render();
+//			*iter->render();
 //
 //		}
 //	}
