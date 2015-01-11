@@ -38,6 +38,9 @@ int main()
                     // Es sollen alle geraden Zahlen aus dem Vektor gelöscht
                     // werden. 
   
-  copy(v.begin(), v.end(), ostream_iterator<int>(cout, " "));
+  // remove_if kann nicht die länge des Arrays verändern. Dafür 
+  // signalisiert die funktion die neue Länge durch den zurück-
+  // gegebenen Iterator.
+  copy(v.begin(), new_end, ostream_iterator<int>(cout, " "));
   cout << endl;     // Wiederrum wird der Inhalt des Vektors ausgegeben.
 }
