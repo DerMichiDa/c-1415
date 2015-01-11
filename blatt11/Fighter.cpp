@@ -12,8 +12,8 @@
 namespace asteroids {
 
 void Fighter::shoot() {
-	// Create a new bullet with this fighter's position an x-Axis
-	Bullet* bullet(this->m_position, this->m_xAxis, 2.0);
+	// Create a new bullet with this fighter's position and x-Axis
+	Bullet* bullet = new Bullet(this->m_position, this->m_xAxis, 2);
 
 	// Start a new thread, move the bullet
 	bullet->start();
@@ -25,7 +25,6 @@ void Fighter::shoot() {
 void Fighter::render() {
 	// Render the fighter
 	TexturedMesh::render();
-
 
 	// VERSION MIT ITERATOR WILL IRGENDWIE NOCH NICHT
 
@@ -48,7 +47,7 @@ void Fighter::render() {
 //		}
 //	}
 
-	for (int i = 0; i < m_bullets.size(); i++) {
+	for (unsigned int i = 0; i < m_bullets.size(); i++) {
 
 		// if bullet is not alive anymore
 		if (!m_bullets.at(i)->isAlive()) {
